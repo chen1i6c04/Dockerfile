@@ -7,7 +7,7 @@ RUN apt-get update -qq && \
 	apt-get install -y -qq \
 	git \
 	blast2 \
-	python2 \
+	python2.7 \
 	make \
 	curl && \
 	git https://github.com/denglab/SeqSero.git && \
