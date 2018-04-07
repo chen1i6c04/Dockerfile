@@ -14,10 +14,10 @@ RUN apt-get update -qq && \
 	bwa \
 	samtools \
 	curl && \
-	git clone https://github.com/denglab/SeqSero.git && \
+	git clone git@github.com:denglab/SeqSero.git && \
 	rm -rf /var/cache/apt/* /var/lib/apt/lists/*;
 
 
-RUN pip install -U biopython
+RUN pip install biopython
 
 
