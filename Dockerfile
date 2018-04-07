@@ -9,6 +9,7 @@ RUN apt-get update -qq && \
 	blast2 \
 	wget \
 	python2.7 \
+	python-pip
 	make \
 	bwa \
 	samtools \
