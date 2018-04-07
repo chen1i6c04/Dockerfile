@@ -10,7 +10,7 @@ RUN apt-get update -qq && \
 	python2.7 \
 	make \
 	curl && \
-	git https://github.com/denglab/SeqSero.git && \
+	git clone https://github.com/denglab/SeqSero.git && \
 	rm -rf /var/cache/apt/* /var/lib/apt/lists/*;
 
 
