@@ -10,7 +10,6 @@ RUN apt-get update -qq && \
 	wget \
 	python2.7 \
 	python-pip
-	make \
 	bwa \
 	samtools \
 	curl && \
