@@ -4,7 +4,7 @@ FROM ubuntu:16.04
 MAINTAINER chen1i6c04 <chen1i6c04@gmail.com>
 
 RUN apt-get update -qq && \
-	apt-get install -y -qq \
+	apt install -y -qq \
 	git \
 	blast2 \
 	wget \
