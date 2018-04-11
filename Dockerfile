@@ -3,9 +3,12 @@ FROM ubuntu:16.04
 
 MAINTAINER chen1i6c04 <chen1i6c04@gmail.com>
 
-RUN apt-get update -qq && \
-	apt install -y -qq \
+RUN apt-get update \
+	&& apt-get upgrade -y \
+	&& apt-get install -y \
+	build-essential \
 	git \
+	make \
 	blast2 \
 	wget \
 	python2.7 \
@@ -17,6 +20,6 @@ RUN apt-get update -qq && \
 	rm -rf /var/cache/apt/* /var/lib/apt/lists/*;
 
 
-RUN pip install biopython
+RUN pip install -U biopython
 
 
