@@ -16,7 +16,7 @@ RUN apt-get update \
     bwa \
     samtools \
     curl && \
-    git clone git@github.com:denglab/SeqSero.git && \
+    git clone https://github.com/denglab/SeqSero.git && \
     rm -rf /var/cache/apt/* /var/lib/apt/lists/*;
 
 
