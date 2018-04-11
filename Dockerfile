@@ -12,7 +12,7 @@ RUN apt-get update \
     blast2 \
     wget \
     python2.7 \
-    python-pip
+    python-pip \
     bwa \
     samtools \
     curl && \
