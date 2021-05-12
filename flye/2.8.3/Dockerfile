@@ -6,32 +6,22 @@ LABEL software.version="2.8.3"
 LABEL website="https://github.com/fenderglass/Flye"
 LABEL license="https://github.com/fenderglass/Flye/blob/flye/LICENSE"
 
-RUN apt-get update && apt-get install --no-install-recommends -y make \
- cmake \
- file \
- bzip2 \
+RUN apt-get update && apt-get install -y make \
  gcc \
  g++ \
  python \
+ python-pip \
+ python-setuptools \
  zlib1g-dev \
- wget \
- curl \
- libffi-dev \
- libncurses5-dev \
- libbz2-dev \
- liblzma-dev \
- libcurl4-gnutls-dev \
- libssl-dev \
- python3-all-dev \
- python-virtualenv \
- virtualenv \
- git-lfs && \
- apt-get clean && apt-get autoclean && \
- rm -rf /var/lib/apt/lists/*
+ wget && \
+ rm -rf /var/lib/apt/lists/* && apt-get clean && apt-get autoclean
 
-# initialize git lfs, prior to cloning repo
-RUN git lfs install
+RUN wget https://github.com/fenderglass/Flye/archive/${FLYE_VER}.tar.gz && \
+  tar -xvf ${FLYE_VER}.tar.gz && \
+  rm ${FLYE_VER}.tar.gz && \
+  cd Flye-${FLYE_VER} && \
+  python setup.py build && \
+  python setup.py install && \
+  mkdir /data
 
-RUN git clone https://github.com/fenderglass/Flye.git --single-branch --depth 1 --branch v${flyeVer} && \
- cd Flye && \
- python setup.py install
+WORKDIR /data
