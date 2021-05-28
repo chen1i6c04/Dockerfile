@@ -14,7 +14,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 RUN conda update -n base -c defaults conda && \
-    conda install -c conda-forge -c bioconda -c conda-forge \
+    conda install -c anaconda -c conda-forge -c bioconda -c defaults \
     python=3.7.7 \
     mash=2.1.1 \
     scikit-learn=0.21.3 \
@@ -30,12 +30,10 @@ RUN conda update -n base -c defaults conda && \
     pyarrow=0.17.1 \
     pycurl
 
-ADD /usr/src/
 
-RUN cd /usr/src/ && \
-    wget https://github.com/ythuang0522/homopolish/archive/refs/tags/v{$version}.tar.gz -O homopolish.tar.gz && \
-    tar -xf homopolish.tar.gz
 
-WORKDIR /usr/src/homopolish-0.2
+RUN wget https://github.com/ythuang0522/homopolish/archive/refs/tags/v0.2.tar.gz -O homopolish.tar.gz && \
+    tar -xf homopolish.tar.gz && \
+    mv homopolish-0.2 /opt/homopolish
 
-ENTRYPOINT ["python", "homopolish.py"]
+WORKDIR /opt/homopolish
