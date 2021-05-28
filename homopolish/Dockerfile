@@ -15,19 +15,19 @@ RUN apt-get update && \
 
 RUN conda update -n base -c defaults conda && \
     conda install -c conda-forge -c bioconda -c conda-forge \
-    python=3.7.7
-    mash=2.1.1
-    scikit-learn=0.21.3
-    minimap2=2.17
-    python-wget=3.2
-    feather-format=0.4.1
-    numpy=1.18.5
-    pandas=0.23.4
-    biopython=1.76
-    joblib=0.15.1
-    requests=2.24.0
-    more-itertools=8.4.0
-    pyarrow=0.17.1
+    python=3.7.7 \
+    mash=2.1.1 \
+    scikit-learn=0.21.3 \
+    minimap2=2.17 \
+    python-wget=3.2 \
+    feather-format=0.4.1 \
+    numpy=1.18.5 \
+    pandas=0.23.4 \
+    biopython=1.76 \
+    joblib=0.15.1 \
+    requests=2.24.0 \
+    more-itertools=8.4.0 \
+    pyarrow=0.17.1 \
     pycurl
 
 ADD /usr/src/
